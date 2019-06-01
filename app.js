@@ -1,62 +1,116 @@
-let epX = 0;
-let epY = 0;
-let epZ = 0;
-let epR = 0;
+let dx = 0;
+let dy = 0;
+let dz = 0;
+let r = 0;
+let PI = 3.14
 let earthTex;
 let marsTex;
 let sunTex;
-
+let saturnRing;
+let mario;
 
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
-    background(0,0, 0);
+
+  //  background(225,0, 0);
     earthTex = loadImage('earth.jpg');
     marsTex = loadImage('mars.jpg');
     sunTex = loadImage('sun.png');
+    saturnRing = loadImage('saturnRing.png');
+    mario = loadImage('mario.jpg');
 }
 
 function draw() {
     
     background(0,0, 0);
-    epX = map(mouseX, -100, height, 0, -100);
-    epY = map(mouseY, -100, height, 0, -100);
-    
+    dx = map(mouseX, -100, height, 0, -100);
+    dy = map(mouseY, -100, height, 0, -100);
     
     
     noStroke();                 // Wireframe on the objects
     renderPlanetEarth();
     renderMarsPlanet();
+    renderJupiter();
+    renderVenus();
+    renderMercury();
     renderSun();
+    renderSaturn();
+    renderSaturnRing();
     orbitControl();
+    normalMaterial();
    
+}
+
+function renderMercury() {
+   
+    texture();
+    translate(-400, 0, 0);
+    sphere(35);
+}
+
+function renderVenus() {
+  
+
+    texture();
+    translate(-1300, 0, 0);
+    sphere(68);
 }
 
 function renderPlanetEarth() {
 
      //epR += 0.03;
     texture(earthTex);
-    translate(epX, epY, epZ);
-    rotateY(radians(epR));
-    sphere(200);    
+    translate(dx, dy, dz);
+    rotateY(radians(r));
+    sphere(80);    
+
 }
 
 function renderMarsPlanet() {
-    //     epR += 0;
 
     texture(marsTex);
     translate(400, 0, 0);
-    rotateY(radians(epR));
-    sphere(100);
+    rotateY(radians(r));
+    sphere(58);
 }
+function renderJupiter() {
+ 
+    texture();
+    translate(700, 0, 0);
+    rotateY(radians(r));
+    sphere(400);
+}
+
+
 
 function renderSun() {
-  //  epR += 0;
 
     texture(sunTex);
-    translate(-1000, 0, 0);
-    sphere(300);
+    translate(-3500, 0, 0);
+    sphere(2000);
 }
+
+function renderSaturnRing(){
+    //saturn ring
+    translate(-500, -270, 550);
+    rotateY(PI / 2.0);
+    rotateX(PI / 3.0);
+    image(saturnRing,100, 100);
+ 
+    
+}
+
+
+function renderSaturn(){
+    texture();
+    translate(6500, 0, 0);
+    sphere(150);
+}
+
+
+
+
 
 
     
