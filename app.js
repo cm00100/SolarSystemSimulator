@@ -26,8 +26,8 @@ function draw() {
     background(0,0, 0);
     dx = map(mouseX, -100, height, 0, -100);
     dy = map(mouseY, -100, height, 0, -100);
-    
-    
+    ambientLight(180);
+    directionalLight(255, 248, 216, 0.25, 0.25, 0);   
     noStroke();                 // Wireframe on the objects
     renderPlanetEarth();
     renderMarsPlanet();
@@ -45,7 +45,7 @@ function draw() {
 function renderMercury() {
    
     texture();
-    translate(-400, 0, 0);
+    translate(-500, 0, 0);
     sphere(35);
 }
 
@@ -53,7 +53,7 @@ function renderVenus() {
   
 
     texture();
-    translate(-1300, 0, 0);
+    translate(-1700, 0, 0);
     sphere(68);
 }
 
@@ -88,7 +88,7 @@ function renderSun() {
 
     texture(sunTex);
     translate(-3500, 0, 0);
-    sphere(2000);
+    sphere(2800);
 }
 
 function renderSaturnRing(){
@@ -104,7 +104,7 @@ function renderSaturnRing(){
 
 function renderSaturn(){
     texture();
-    translate(6500, 0, 0);
+    translate(6800, 0, 0);
     sphere(150);
 }
 
