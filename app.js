@@ -19,7 +19,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 
 // Sun
-var sun_tex = new THREE.TextureLoader().load("img/sun.png");
+var sun_tex = new THREE.TextureLoader().load("img/sun.jpg");
 var sunGeo = new THREE.SphereGeometry(90, 50, 30);
 var sunMaterial = new THREE.MeshBasicMaterial({
  // color: 0xF3A2B0,
@@ -52,7 +52,7 @@ scene.add(venusSphere);
 
 
 // Earth
-var earth_tex = new THREE.TextureLoader().load("img/earth.jpg");
+var earth_tex = new THREE.TextureLoader().load("img/earth1.jpg");
 var earthGeo = new THREE.SphereGeometry(5, 50, 30);
 var earthMaterial = new THREE.MeshBasicMaterial({
   //color: 0xF3A2B0,
@@ -76,8 +76,8 @@ scene.add(marsSphere);
 
 var jupiter_tex = new THREE.TextureLoader().load("img/jupiter.jpg");
 var jupiterGeo = new THREE.SphereGeometry(30, 50, 30);
-var jupiterMaterial = new THREE.MeshBasicMaterial({  color: 0xF3A2B0,
-  //map: earth_tex
+var jupiterMaterial = new THREE.MeshBasicMaterial({ 
+  map: jupiter_tex
   });
 var jupiterSphere = new THREE.Mesh(jupiterGeo, jupiterMaterial);
 jupiterSphere.translateX(100);
@@ -86,24 +86,29 @@ scene.add(jupiterSphere);
 
 // Saturn
 
-//var saturn_tex = new THREE.TextureLoader().load("img/jupiter.jpg");
-var satGeo = new THREE.SphereGeometry(25, 50, 30);
-var satMaterial = new THREE.MeshBasicMaterial({  color: 0xF3A130,
-  //map: earth_tex
-  });
+var saturn_tex = new THREE.TextureLoader().load("img/saturn.jpg");
+var satGeo = new THREE.SphereGeometry(22, 50, 30);
+var satMaterial = new THREE.MeshBasicMaterial({ map: saturn_tex });
 var satSphere = new THREE.Mesh(satGeo, satMaterial);
 satSphere.translateX(200);
 scene.add(satSphere);
 
+//Saturn Ring
+var saturnRing_tex = new THREE.TextureLoader().load("img/saturnRing.png");
+var satRingGeo = new THREE.PlaneGeometry(150, 50, 30);
+var satRingMaterial = new THREE.MeshBasicMaterial({ 
+  	map: saturnRing_tex
+  });
+var satRing = new THREE.Mesh(satRingGeo, satRingMaterial);
+satRing.translateX(200);
+scene.add(saturnRing_tex);
 
 
 // Uranus
 
-//var uranus_tex = new THREE.TextureLoader().load("img/jupiter.jpg");
+var uranus_tex = new THREE.TextureLoader().load("img/uranus.jpg");
 var urGeo = new THREE.SphereGeometry(13, 50, 30);
-var urMaterial = new THREE.MeshBasicMaterial({  color: 0xF3A2B0,
-  //map: earth_tex
-  });
+var urMaterial = new THREE.MeshBasicMaterial({ map: uranus_tex});
 var urSphere = new THREE.Mesh(urGeo, urMaterial);
 urSphere.translateX(290);
 scene.add(urSphere);
@@ -111,11 +116,9 @@ scene.add(urSphere);
 
 // Neptune
 
-//var neptune_tex = new THREE.TextureLoader().load("img/jupiter.jpg");
+var neptune_tex = new THREE.TextureLoader().load("img/neptune.jpg");
 var nepGeo = new THREE.SphereGeometry(12, 50, 30);
-var nepMaterial = new THREE.MeshBasicMaterial({  color: 0xF3A2B0,
-  //map: earth_tex
-  });
+var nepMaterial = new THREE.MeshBasicMaterial({ map: neptune_tex });
 var nepSphere = new THREE.Mesh(nepGeo, nepMaterial);
 nepSphere.translateX(380);
 scene.add(nepSphere);
@@ -125,7 +128,7 @@ scene.add(nepSphere);
 
 //--------------Skysphere-------------------
 
-var sky_tex = new THREE.TextureLoader().load("img/stars.png");
+var sky_tex = new THREE.TextureLoader().load("img/stars.jpg");
 var skyGeometry = new THREE.SphereGeometry(500, 50, 30);
 var skyMaterial = new THREE.MeshBasicMaterial({
 	map: sky_tex,
