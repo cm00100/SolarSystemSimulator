@@ -95,13 +95,17 @@ scene.add(satSphere);
 
 //Saturn Ring
 var saturnRing_tex = new THREE.TextureLoader().load("img/saturnRing.png");
-var satRingGeo = new THREE.PlaneGeometry(150, 50, 30);
+var satRingGeo = new THREE.PlaneGeometry(20, 20);
+satRingGeo.rotateX(-Math.PI * 0.4); // this is how you can do it
+
 var satRingMaterial = new THREE.MeshBasicMaterial({ 
-  	map: saturnRing_tex
+  	map: saturnRing_tex,
+    side: THREE.DoubleSide,
+  	transparent: true
   });
 var satRing = new THREE.Mesh(satRingGeo, satRingMaterial);
-satRing.translateX(35);
-scene.add(saturnRing_tex);
+satRing.translateX(40);
+scene.add(satRing);
 
 
 // Uranus
@@ -145,10 +149,19 @@ controls.update;
 
 //-------------Rendering----------------------
 
+
+//var r = 50;
+//var theta = 0;
+//var dTheta = 2 * Math.PI / 1000;
+
+
 var render = function() {
   requestAnimationFrame(render);
   controls.update();
-
+  //earthSphere.rotation.y -= .0005;
+ // theta += dTheta;
+ // earthSphere.position.x = r * Math.cos(theta);
+  //earthSphere.position.z = r * Math.sin(theta);
   renderer.render(scene, camera);
 };
 
